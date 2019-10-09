@@ -80,7 +80,8 @@ WSGI_APPLICATION = 'mapichaaa.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-   'default': {
+   'default': dj_database_url.config()
+       {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'mapichaaa',
        'USER': 'moringa',
