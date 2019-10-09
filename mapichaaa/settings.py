@@ -83,7 +83,7 @@ DATABASES = {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'mapichaaa',
        'USER': 'moringa',
-       'HOST': 'localhost', '255.255.255.255', '::1 '
+       'HOST': 'localhost'
    'PASSWORD':'benjaminthefaff',
    'PORT':'5432',
    'listen_addresses' = '*'
