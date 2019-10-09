@@ -84,9 +84,8 @@ DATABASES = {
        'NAME': 'mapichaaa',
        'USER': 'moringa',
        'HOST': 'localhost'
-   'PASSWORD':'benjaminthefaff',
-   'PORT':'5432',
-   'listen_addresses' = '*'
+       'PASSWORD':'benjaminthefaff',
+       'PORT':'5432',
    }
 }
 
