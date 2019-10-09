@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'mapichaaa.wsgi.application'
 DATABASES = {
    
        {
-        'ENGINE': 'django.db.backends.postgresql',
+       'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'mapichaaa',
        'USER': 'moringa',
        'PASSWORD':'benjaminthefaff',
