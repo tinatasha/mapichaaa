@@ -15,7 +15,7 @@ import dj_database_url
 
 DATABASE_URL='postgres://eenlprdhhoifbo:6bbec748aa9042781cd41f11162e9c055606879416ad7de0860a43ee4f100c49@ec2-54-243-243-76.compute-1.amazonaws.com:5432/d91qfumtt1r2re'
 
-DATABASES['default'].update(db_from_env)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
