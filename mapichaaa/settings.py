@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 
+DATABASE_URL='postgres://eenlprdhhoifbo:6bbec748aa9042781cd41f11162e9c055606879416ad7de0860a43ee4f100c49@ec2-54-243-243-76.compute-1.amazonaws.com:5432/d91qfumtt1r2re'
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -82,13 +83,14 @@ WSGI_APPLICATION = 'mapichaaa.wsgi.application'
 DATABASES = {
    
        {
-       'default': dj_database_url.config()
-       'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'mapichaaa',
        'USER': 'moringa',
        'PASSWORD':'benjaminthefaff',
        'PORT':'5432',
        'HOST': 'localhost',
+       'default': dj_database_url.config()
+       
    
    
    }
