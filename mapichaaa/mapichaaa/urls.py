@@ -23,6 +23,7 @@ from pic import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home),
+    url(r'^search/', views.search_results, name='search_results')
 ]
 
 

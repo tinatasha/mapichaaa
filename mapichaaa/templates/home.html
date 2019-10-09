@@ -1,6 +1,5 @@
 {% load static from staticfiles %}
 {% load bootstrap3 %}
-{% bootstrap_css %}
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +9,7 @@
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
 		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<link rel="stylesheet" href="authentic/static/css/styles.css">
 </head>
@@ -41,14 +41,21 @@
 			}
 		}
 
-
+		function toggle() {
+			var x = document.getElementById("search_images");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
 
 
 	</script>
 	<div id="search_form">
-			<div class="col-sm-4 col-md-4 navbar-right">
+			<div class="row navbar-right">
 	
-				<form class="navbar-form" role="search" action="">
+				<form class="navbar-form" role="search" action="{% url 'search_results' %}">
 	
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search Image Category" name="image">
@@ -59,8 +66,34 @@
 					</div>
 	
 				</form>
+				
+				
 			</div>
 	
+		</div>
+		<div id="search_images" style="display:none;">
+			<div class="container">
+
+				<div class="row">
+				  {% if articles%}
+					<h2>Found {{ articles|length }} of searched term {{message}}</h2>
+				  {% else %}
+					<h2> Found 0 articles for the search term {{message}}</h2>
+				  {% endif %}
+			  
+				</div>
+			  
+				<div class="row">
+			  
+				{% if articles %}
+				  {% for article in articles %}
+					<div class="col-sm-6 col-md-3">
+						<h1>{{article.title}}</h1>
+					</div>
+				  {% endfor %}
+				{% endif %}
+				</div>
+			  </div>
 		</div>
 		
 	<div id="location_buttons">
@@ -93,8 +126,10 @@
 				{% for image in images %}	
 		<tr scope="row">
 			<td scope="col">
-							<div>
+							<div class="row">
+								<div class="col-md-4">
 									<img onclick="toggle()" src="{{ image.image.url }}" align="left" width="600px">
+							</div>
 							</div>
 			</td>
 			<td scope="col">
