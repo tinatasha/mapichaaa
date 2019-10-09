@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
+from django.core.wsgi import get_wsgi_application
+from whitenoise.django import DjangoWhiteNoise
 
 DATABASE_URL='postgres://eenlprdhhoifbo:6bbec748aa9042781cd41f11162e9c055606879416ad7de0860a43ee4f100c49@ec2-54-243-243-76.compute-1.amazonaws.com:5432/d91qfumtt1r2re'
 
@@ -135,7 +137,7 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, "static"),
 # ]
-STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
+STATIC_ROOT =  'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -143,4 +145,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
+application = get_wsgi_application()
+application = DjangoWhiteNoise(application)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
